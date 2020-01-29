@@ -45,6 +45,9 @@ module.exports = async env => {
                 graphqlQueries: true,
                 rootComponents: true,
                 upward: true
+            },
+            '.': {
+                rootComponents: true
             }
         },
         env
