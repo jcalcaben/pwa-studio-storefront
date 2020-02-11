@@ -1,0 +1,5 @@
+.root_active {
+    composes: root_active from '~@magento/venia-ui/lib/components/Mask/mask.css';
+    background-color: blue;
+
+}
