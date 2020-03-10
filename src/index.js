@@ -13,6 +13,8 @@ import App, { AppContextProvider } from '@magento/venia-ui/lib/components/App';
 import { registerSW } from './registerSW';
 import './index.css';
 
+import ScrollToggle from './lib/components/ScrollToggle'
+
 const { BrowserPersistence } = Util;
 const apiBase = new URL('/graphql', location.origin).toString();
 
@@ -49,6 +51,7 @@ ReactDOM.render(
     <Adapter apiBase={apiBase} apollo={{ link: apolloLink }} store={store}>
         <AppContextProvider>
             <App />
+            <ScrollToggle/> 
         </AppContextProvider>
     </Adapter>,
     document.getElementById('root')

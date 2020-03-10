@@ -1,0 +1,18 @@
+.root {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    z-index: 1;
+    border: solid 1px;
+    padding: 5px;
+}
+
+.rootActive {
+    composes: root;
+    background-color: rgb(134, 133, 133);
+}
+
+.rootInactive {
+    composes: root;
+    background-color: #ffffff;
+}
