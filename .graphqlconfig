@@ -11,7 +11,10 @@
             "apollo",
             "literal"
           ],
-          "filesGlob": "src/**/*.{js,graphql,gql}"
+          "filesGlob": "src/**/*.{js,graphql,gql}",
+          "ignore": [
+            "../venia-ui/lib/**/giftOptions.js"
+          ]
         }
       }
     }

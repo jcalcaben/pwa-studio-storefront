@@ -34,9 +34,11 @@ export const findSameOrLargerImage = async url => {
 
     const cache = await caches.open(CATALOG_CACHE_NAME);
     const cachedURLs = await cache.keys();
-    const cachedSources = await cachedURLs.filter(({ url }) =>
-        url.includes(requestedFilename)
-    );
+    const cachedSources = await cachedURLs.filter(({ url }) => {
+        const cachedFileName = new URL(url).pathname.split('/').reverse()[0];
+
+        return cachedFileName === requestedFilename;
+    });
 
     // Find the cached version of this image that is closest to the requested
     // width without going under it.
@@ -93,7 +95,7 @@ export const findSameOrLargerImage = async url => {
 };
 
 const fetchAndCacheImage = imageURL =>
-    fetch(imageURL).then(response =>
+    fetch(imageURL, { mode: 'no-cors' }).then(response =>
         caches
             .open(CATALOG_CACHE_NAME)
             .then(cache => cache.put(imageURL, response.clone()))
